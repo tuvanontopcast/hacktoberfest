@@ -1,0 +1,14 @@
+@layout('layouts/master')
+@set('title', 'Post')
+
+@section('body')
+    <h1 class="ui header">Posts</h1>
+    <ul class="ui bullet list">
+        @each(post in posts)
+        <li><a href="{{route('show',{id:post.id})}}">{{post.title}}</a>
+            &nbsp;&nbsp;[<a href="{{ route('comments.index', {postid: post.id})}}"> {{post.$extras.commentsCount}} comments </a>]
+        </li>
+        @endeach
+    </ul>
+    <a class="ui button" href="{{route('create')}}">New</a>
+@endsection
