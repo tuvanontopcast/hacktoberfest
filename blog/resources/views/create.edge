@@ -1,0 +1,22 @@
+@layout('layouts/master') 
+@set('title','New Post') 
+@section('body') 
+    <h1 class="ui header">New Post</h1>
+    <form class="ui form"action="{{route('store')}}"method="post">
+    <div class="field">
+        <label>Title</label>
+        <input type="text"name="title"size="50">
+        @if(flashMessages.has('errors.title'))
+            <div class="ui negative message"> {{ flashMessages.get('errors.title') }} </div>
+        @endif
+    </div>
+    <div class="field">
+        <label>Body</title>
+        <textarea name="body"rows="5"cols="50"></textarea>
+        @if(flashMessages.has('errors.body'))
+            <div class="ui negative message"> {{ flashMessages.get('errors.body') }} </div>
+        @endif
+    </div>
+    <input class="ui button"type="submit"value="Save">
+</form>
+@endsection

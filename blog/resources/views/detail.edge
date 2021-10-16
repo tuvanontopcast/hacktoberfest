@@ -1,0 +1,14 @@
+@layout('layouts/master') 
+@set('title',post.title) 
+@section('body') 
+    <h1 class="ui header">{{post.title}}</h1>
+    <p>{{post.body}}</p>
+    {{--<a class="ui button"href="{{route('home')}}">Back</a>&nbsp; 
+    <a class="ui button"href="{{route('edit',{id:post.id})}}">Edit</a>&nbsp; 
+    <a class="ui button"href="{{route('delete',{id:post.id})}}">Delete</a>--}}
+    @!button({action: route('home'), label: 'Back'})
+    &nbsp;
+    @!button({action: route('edit',{id:post.id}), label: 'Edit'})
+    &nbsp;
+    @!button({action: route('delete',{id:post.id}), label: 'Delete'})
+@endsection

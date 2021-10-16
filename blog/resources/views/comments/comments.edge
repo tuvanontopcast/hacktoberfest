@@ -1,0 +1,16 @@
+@layout('layouts/master')
+
+@set('title', post.title)
+
+@section('body')
+    <h1 class="ui header">{{post.title}}</h1>
+    <p>{{post.body}}</p>
+    <hr>
+    <h3>Comments ({{post.comments.length}})</h3>
+    @each(commt in post.comments)
+    <p><b>{{commt.poster}} @ {{commt.postedOn}}</b></p>
+    <p>{{commt.comment}}</p>
+    <hr>
+    @endeach
+    @include('comments/commtform')
+@endsection
