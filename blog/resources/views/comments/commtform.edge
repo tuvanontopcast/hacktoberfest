@@ -1,0 +1,11 @@
+<form class="ui form" action="{{ route('comments.store', {postid: post.id}) }}" method="post">
+    <div class="two wide field">
+        <label>Your name</label>
+        <input type="text" name="poster" size="20">
+    </div>
+    <div class="field">
+        <label>Comment</label>
+        <textarea name="comment" cols="5" rows="10"></textarea>
+    </div>
+    <input type="submit" value="Submit">
+</form>
